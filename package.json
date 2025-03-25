@@ -5,6 +5,7 @@
   "main": "server/server.js",
   "scripts": {
     "start:dev": "concurrently \"cd server && npm run watch\" \"wait-on tcp:3001 && cd client && npm run dev\"",
+    "render-start": "concurrently \"cd server && npm run start\" \"wait-on tcp:3001 && cd client && npm run dev\"",
     "server": "cd ./server && npm run start",
     "server:build": "cd server && npm run build",
     "server:dev": "cd server && npm run watch",
@@ -14,7 +15,7 @@
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",
     "build": "cd ./server && npm run build && cd ../client && npm run build",
-    "render-build": "npm install && npm run build && npm run seed"
+    "render-build": "npm install && npm run build"
   },
   "keywords": [],
   "author": "",
