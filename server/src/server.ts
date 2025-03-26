@@ -84,18 +84,12 @@ const startServer = async () => {
 
   // if we're in production, serve client/build as static assets
   if (process.env.NODE_ENV === "production") {
-    console.log("Current __dirname:", __dirname);
-    console.log(
-      "Expected index.html path:",
-      path.join(__dirname, "../../client/dist/index.html")
-    );
-
     expressApplication.use(
-      express.static(path.join(__dirname, "../client/build"))
+      express.static(path.join(__dirname, "../client/dist"))
     );
 
     expressApplication.get("*", (_req, res) => {
-      res.sendFile(path.join(__dirname, "../client/build/index.html"));
+      res.sendFile(path.join(__dirname, "../client/dist/index.html"));
     });
   }
 
