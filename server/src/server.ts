@@ -87,7 +87,7 @@ const startServer = async () => {
     console.log("Current __dirname:", __dirname);
     console.log(
       "Expected index.html path:",
-      path.join(__dirname, "../client/dist/index.html")
+      path.join(__dirname, "../../client/dist/index.html")
     );
 
     expressApplication.use(
@@ -95,7 +95,7 @@ const startServer = async () => {
     );
 
     expressApplication.get("*", (_req, res) => {
-      res.sendFile(path.join(__dirname, "../client/dist/index.html"));
+      res.sendFile(path.join(__dirname, "../client/build/index.html"));
     });
   }
 
